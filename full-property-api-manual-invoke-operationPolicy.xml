@@ -1,0 +1,20 @@
+<policies>
+	<inbound>
+		<base />
+		<set-method id="apim-generated-policy">GET</set-method>
+		<rewrite-uri id="apim-generated-policy" template="/manual/paths/invoke/?api-version=2016-06-01&amp;sp=/triggers/manual/run&amp;sv=1.0&amp;sig={{full-property-api_manual-invoke_62622cc551361dda2f8a7e30}}" />
+		<set-header id="apim-generated-policy" name="Ocp-Apim-Subscription-Key" exists-action="delete" />
+		<set-query-parameter name="requested" exists-action="override">
+			<value>Full_Property</value>
+		</set-query-parameter>
+	</inbound>
+	<backend>
+		<base />
+	</backend>
+	<outbound>
+		<base />
+	</outbound>
+	<on-error>
+		<base />
+	</on-error>
+</policies>
